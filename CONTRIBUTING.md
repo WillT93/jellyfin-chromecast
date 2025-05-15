@@ -26,21 +26,23 @@ The development environment is setup with editorconfig. Code style is enforced b
 
 `npm run lint` - Run linting and prettier
 
-1. Register a new [application](https://developers.google.com/cast/docs/registration). It is important that you choose a "Custom application", the rest of the details are up to you (name, description, etc). You will need a web server to host the files on.
+1. Register a new [application](https://developers.google.com/cast/docs/registration). It is important that you choose a "Custom application", the rest of the details are up to you (name, description, etc).
 
-2.  Ensure that you can use this app:
+    The Receiver Application URL it refers to is the location where this apps files will be hosted from. The Chromecast will look to that URL when it attempts to start this receiver app. You will need a web server to host the files on. This can just be the computer you are using to develop. Enter the IP address into this field and ensure it's accessible on your LAN from your Chromecast device.
+
+2.  Ensure that you can use this app by making the following changes on your Jellyfin Server:
     #### For versions 10.8.x and earlier:
     - Set up a local copy of [jellyfin-web](https://github.com/jellyfin/jellyfin-web).
     - Change `applicationStable` and `applicationUnstable` in `jellyfin-web/src/plugins/chromecastPlayer/plugin.js` to your own application ID.
     - Run the local copy of jellyfin-web using the provided instructions in the repo.
-    
+
     #### For versions 10.9.x and beyond:
     - Add your `CastReceiverApplication` `ID` and `Name` to the jellyfin `system.xml` in the `configuration` folder.
     - Your custom hosted application is now available to select next to `stable` and `unstable`. From the client of your choice.
 
-5. Clone this repo and run `npm install`. This will install all dependencies, run tests and build a production build by default.
-6. Make changes and build with `npm run build`.
-7. Before pushing your changes, make sure to run `npm run test` and `npm run lint`.
+3. Clone this repo and run `npm install`. This will install all dependencies, run tests and build a production build by default.
+4. Make changes and build with `npm run build`.
+5. Before pushing your changes, make sure to run `npm run test` and `npm run lint`.
 
 > NOTE: It is recommended to symlink the `dist` folder pointing to a location on your web server hosting the files. That way you can refresh the cast receiver via the Chrome Remote Debugger and see your changes without having to manually copy after each build.
 
