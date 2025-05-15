@@ -28,7 +28,7 @@ The development environment is setup with editorconfig. Code style is enforced b
 
 1. Register a new [application](https://developers.google.com/cast/docs/registration). It is important that you choose a "Custom application", the rest of the details are up to you (name, description, etc).
 
-    The Receiver Application URL it refers to is the location where this apps files will be hosted from. The Chromecast will look to that URL when it attempts to start this receiver app. You will need a web server to host the files on. This can just be the computer you are using to develop. Enter the IP address into this field and ensure it's accessible on your LAN from your Chromecast device.
+    The Receiver Application URL it refers to is the location where this apps files will be hosted from. The Chromecast will look to that URL when it attempts to start this receiver app. You will need a web server to host the files on (which can just be the computer you are using to develop this app). Enter the IP address into this field and ensure it's accessible on your LAN from your Chromecast device.
 
 2.  Ensure that you can use this app by making the following changes on your Jellyfin Server:
     #### For versions 10.8.x and earlier:
